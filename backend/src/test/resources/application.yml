@@ -1,0 +1,18 @@
+# Test profile: in-memory H2 (ephemeral). Durable restart checks use the local file profile.
+spring:
+  datasource:
+    url: jdbc:h2:mem:tickets;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration

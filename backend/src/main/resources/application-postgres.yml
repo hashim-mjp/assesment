@@ -1,0 +1,11 @@
+# PostgreSQL profile (production-like / acceptance durability).
+# Activate with: --spring.profiles.active=postgres
+# Supply credentials via environment variables — never commit real values.
+# Schema: Flyway (see application.yml); Hibernate validates against migrations.
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/tickets}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
